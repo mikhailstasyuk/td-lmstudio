@@ -29,13 +29,17 @@ def dump_reply(data):
         json.dump({"reply": data}, f_out)
 
 def request(kwargs):
+    # Set up request inputs
+    port = kwargs['port']
+    user_text = kwargs['input']
+    
 	# Point to the local server
-    client = OpenAI(base_url=f"http://localhost:1234/v1", api_key="not-needed")
+    client = OpenAI(base_url=f"http://localhost:{port}/v1", api_key="not-needed")
     completion = client.chat.completions.create(
         model="local-model", # this field is currently unused
         messages=[
             {"role": "system", "content": "Always answer in rhymes."},
-            {"role": "user", "content": "Introduce yourself."}
+            {"role": "user", "content": user_text}
         ],
         temperature=0.7,
     )
@@ -52,6 +56,7 @@ def main(kwargs):
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("-p", "--port", dest="port", help="a port number")
+    parser.add_argument("-i", "--input", dest="input", help="user input text")
     args = parser.parse_args()
     main(vars(args))
     pass
