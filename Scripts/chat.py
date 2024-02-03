@@ -2,6 +2,7 @@ import json
 from datetime import datetime
 from openai import OpenAI
 from argparse import ArgumentParser
+import os
 
 def generate_fname():
     # Get the current time
@@ -18,9 +19,14 @@ def dump_reply(data):
     # Generate a filename
     filename = generate_fname()
 
+    # Create a folder that will contain model replies
+    path = "Data/"
+    if not os.path.exists(path):
+        os.mkdir(path)
+
     # Save LM Studio reply to a json file
-    with open(filename, 'w') as f_out:
-        json.dump(data, f_out)
+    with open(path + filename, 'w') as f_out:
+        json.dump({"reply": data}, f_out)
 
 def request(kwargs):
 	# Point to the local server
