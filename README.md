@@ -14,12 +14,13 @@
 11. **Enter Perform Mode** to start chatting with the model using the UI.
 
 
-#### To-Do
-- [x] Conda environment component created.
-- [x] Client for LM Studio Local Server access established.
-- [x] Implement JSON reply parsing.
-- [x] Develop a UI that supports dynamic interactions between user input and model responses.
-- [ ] Include system prompt editing.
-- [ ] Test everything.
-- [ ] Make UI user-friendly.
-- [ ] Update the documentation to reflect all changes and improvements.
+#### Progress Checklist
+- [x] Created Conda environment component.
+- [x] Established LM Studio Local Server client access.
+- [x] Implemented JSON reply parsing functionality.
+- [x] Developed an interactive UI for dynamic conversations with the model.
+- [ ] Add functionality for editing system prompts.
+- [ ] Conduct comprehensive testing of all components.
+- [ ] Enhance the UI for better user experience.
+- [ ] Update documentation to include recent changes and enhancements.
+
