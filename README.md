@@ -19,7 +19,7 @@
 - [x] Established LM Studio Local Server client access.
 - [x] Implemented JSON reply parsing functionality.
 - [x] Developed an interactive UI for dynamic conversations with the model.
-- [ ] Add functionality for editing system prompts.
+- [x] Add functionality for editing system prompts.
 - [ ] Conduct comprehensive testing of all components.
 - [ ] Enhance the UI for better user experience.
 - [ ] Update documentation to include recent changes and enhancements.
