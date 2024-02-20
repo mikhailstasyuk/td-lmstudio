@@ -32,13 +32,14 @@ def request(kwargs):
     # Set up request inputs
     port = kwargs['port']
     user_text = kwargs['input']
+    system_prompt = kwargs['system_prompt']
     
 	# Point to the local server
     client = OpenAI(base_url=f"http://localhost:{port}/v1", api_key="not-needed")
     completion = client.chat.completions.create(
         model="local-model", # this field is currently unused
         messages=[
-            {"role": "system", "content": "Always answer in rhymes."},
+            {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_text}
         ],
         temperature=0.7,
@@ -55,8 +56,9 @@ def main(kwargs):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("-p", "--port", dest="port", help="a port number")
-    parser.add_argument("-i", "--input", dest="input", help="user input text")
+    parser.add_argument("-p", "--port", dest="port", type=int, help="a port number")
+    parser.add_argument("-i", "--input-prompt", dest="input", type=str, help="user input text")
+    parser.add_argument("-s", "--system-prompt", dest="system_prompt", type=str, help="system prompt text")
     args = parser.parse_args()
     main(vars(args))
     pass
